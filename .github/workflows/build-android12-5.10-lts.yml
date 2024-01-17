@@ -322,11 +322,10 @@ jobs:
         $GITHUB_WORKSPACE/kernel_workspace/tools/magiskboot unpack ${{env.SOURCE_KERNELSU_BOOTIMG_PATH}}
         cd ..
         cp -r ./source ./new
-        if [ ${{ env.KERNEL_IMAGE_NAME }} = Image.gz-dtb ]; then
+        if [ ${{ env.KERNEL_IMAGE_NAME }} = Image.gz ]; then
           cd $GITHUB_WORKSPACE/kernel_workspace/bootimg_tmp/kernelbuild
           $GITHUB_WORKSPACE/kernel_workspace/tools/magiskboot split $GITHUB_WORKSPACE/kernel_workspace/android-kernel/out/arch/${{ env.ARCH }}/boot/${{ env.KERNEL_IMAGE_NAME }}
           cp -rf kernel $GITHUB_WORKSPACE/kernel_workspace/bootimg_tmp/new/
-          cp -rf kernel_dtb $GITHUB_WORKSPACE/kernel_workspace/bootimg_tmp/new/
           cd $GITHUB_WORKSPACE/kernel_workspace/bootimg_tmp/new/
           $GITHUB_WORKSPACE/kernel_workspace/tools/magiskboot repack ${{env.SOURCE_KERNELSU_BOOTIMG_PATH}} $GITHUB_WORKSPACE/kernel_workspace/bootimg_tmp/boot-kernelsu.img
         else
