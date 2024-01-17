@@ -1,7 +1,7 @@
 KERNEL_SOURCE=https://github.com/Fauxly/android_kernel_xiaomi_sm8475
 KERNEL_SOURCE_BRANCH=lts
 KERNEL_CONFIG=gki_defconfig
-KERNEL_IMAGE_NAME=Image
+KERNEL_IMAGE_NAME=Image.gz
 ARCH=arm64
 
 ENABLE_CLANG=true
